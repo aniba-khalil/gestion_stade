@@ -8,6 +8,8 @@ Ce projet est idéal pour comprendre comment Docker et Docker Compose facilitent
 
 Assurez-vous d’avoir Git installé, puis exécutez la commande suivante :   
 dans le terminale taper :
-git clone https://github.com/aniba-khalil/gestion_stade.git/n
-cd gestion_stade/n
+git clone https://github.com/aniba-khalil/gestion_stade.git
+
+cd gestion_stade
+
 docker-compose up --build
