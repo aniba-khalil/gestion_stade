@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stade - Réservation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Écran de connexion -->
+        <div id="login-screen" class="screen">
+            <h2>Connexion</h2>
+            <input type="email" id="login-email" placeholder="Email">
+            <input type="password" id="login-password" placeholder="Mot de passe">
+            <button onclick="login()">Se connecter</button>
+            <p>Pas de compte ? <a href="#" onclick="showScreen('register')">S'inscrire</a></p>
+        </div>
+
+        <!-- Écran d'inscription -->
+        <div id="register-screen" class="screen" style="display: none;">
+            <h2>Inscription</h2>
+            <input type="email" id="register-email" placeholder="Email">
+            <input type="password" id="register-password" placeholder="Mot de passe">
+            <button onclick="register()">S'inscrire</button>
+            <p>Déjà un compte ? <a href="#" onclick="showScreen('login')">Se connecter</a></p>
+        </div>
+
+        <!-- Dashboard -->
+        <div id="dashboard" class="screen" style="display: none;">
+            <nav class="navbar">
+                <h2>Stade Manager</h2>
+                <div>
+                    <span id="user-email"></span>
+                    <span id="user-sold">Solde: 0€</span>
+                    <button onclick="logout()">Déconnexion</button>
+                </div>
+            </nav>
+
+            <div class="content">
+                <div class="menu">
+                    <button onclick="showSection('recharge')">Recharger Compte</button>
+                    <button onclick="showSection('matches')">Voir les Matchs</button>
+                    <button onclick="showSection('reservation')">Réserver une Place</button>
+                    <button onclick="showSection('my-reservations')">Mes Réservations</button>
+                </div>
+
+                <div class="section" id="recharge-section">
+                    <h3>Recharger votre compte</h3>
+                    <input type="text" id="recharge-code" placeholder="Code recharge">
+                    <button onclick="rechargeAccount()">Valider</button>
+                </div>
+
+                <div class="section" id="matches-section" style="display: none;">
+                    <h3>Matchs à venir</h3>
+                    <div id="matches-list"></div>
+                </div>
+
+                <div class="section" id="reservation-section" style="display: none;">
+                    <h3>Réserver une place</h3>
+                    <select id="match-select"></select>
+                    <select id="place-type">
+                        <option value="VIP">VIP (100€)</option>
+                        <option value="Normal">Normal (50€)</option>
+                        <option value="Economy">Economy (20€)</option>
+                    </select>
+                    <button onclick="makeReservation()">Réserver</button>
+                </div>
+
+                <div class="section" id="my-reservations-section" style="display: none;">
+                    <h3>Mes réservations</h3>
+                    <div id="reservations-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
